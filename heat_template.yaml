@@ -6,7 +6,7 @@ description: >
 parameters:
   instance_name:
     type: string
-    default: my_instance
+    default: test_instance
     description: Имя виртуальной машины.
 
   image_id:
