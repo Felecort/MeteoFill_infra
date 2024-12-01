@@ -7,19 +7,19 @@ parameters:
   instance_name:
     type: string
     default: test_instance
-    description: Имя виртуальной машины.
+    description: VM name
 
   image_id:
     type: string
-    description: ID или имя образа.
+    description: image ID/name.
 
   flavor_id:
     type: string
-    description: Размер виртуальной машины (flavor).
+    description: flavor (size).
 
   network_id:
     type: string
-    description: ID сети, к которой подключится VM.
+    description: net ID
 
 resources:
   server_instance:
@@ -42,5 +42,5 @@ resources:
 
 outputs:
   server_ip:
-    description: IP-адрес созданного сервера.
+    description: IP
     value: { get_attr: [server_instance, first_address] }
