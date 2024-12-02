@@ -1,50 +1,20 @@
 heat_template_version: 2018-08-31
 
-description: >
-  template (????????????)
-
-# parameters:
-#   instance_name:
-#     type: string
-#     default: test_instance
-#     description: VM name
-
-#   image_id:
-#     type: string
-#     description: image ID/name.
-
-#   flavor_id:
-#     type: string
-#     description: flavor (size).
-
-#   network_id:
-#     type: string
-#     description: net ID
+description: template (????????????)
 
 resources:
   my_instance:
     type: OS::Nova::Server
     properties:
-      name: batashev
+      # key_name: cc2024
+      key_name: batashev
+      # name: batashev
       image: ubuntu-20.04
       flavor: m1.small
       networks:
         - port: { get_resource: server_port }
-# resources:
-#   my_instance:
-#     type: OS::Nova::Server
-#     properties:
-#       image: "ubuntu-20.04"
-#       flavor: "m1.small"
-#       key_name: "my_key"
-#       networks:
-#         - network: "private_network"
 
-server_port:
-  type: OS::Neutron::Port
-  properties:
-    network_id: "17eae9b6-2168-4a07-a0d3-66d5ad2a9f0e"
-# outputs:
-#   server_ip:
-#     description: IP
-#     value: { get_attr: [server_instance, first_address] }
+  server_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: "17eae9b6-2168-4a07-a0d3-66d5ad2a9f0e"
